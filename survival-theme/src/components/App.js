@@ -1,13 +1,12 @@
 import React from "react";
 import Header from "./Header";
+import GearList from "./GearList";
 
 function App(){
   return (
     <React.Fragment>
       <Header />
-      <h1>Survival Gear</h1>
-      <h3>Bear Grills Uses this!</h3>
-      <hr/>
+      <GearList />
     </React.Fragment>
   );
 }
