@@ -2,4 +2,4 @@
 
 ## Component Drawing / Starting Project Design
 
-![Component Drawing](./src/img/component-drawing.png)
+![Component Drawing](./src/Img/component-drawing.png)
