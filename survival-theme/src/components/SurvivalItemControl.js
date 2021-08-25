@@ -8,7 +8,7 @@ class SurvivalItemControl extends React.Component {
     this.state = {
       fromVisibleOnPage: false
     };
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick = () => {

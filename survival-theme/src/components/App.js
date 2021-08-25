@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import SurvivalItemControl from "./SurvivalItemControll";
+import SurvivalItemControl from "./SurvivalItemControl";
 
 function App(){
   return (
