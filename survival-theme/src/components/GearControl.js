@@ -2,11 +2,12 @@ import React from "react";
 import NewSurvivalItemForm from './NewSurvivalItemForm';
 import GearList from "./GearList";
 
-class SurvivalItemControl extends React.Component {
+class GearControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fromVisibleOnPage: false
+      fromVisibleOnPage: false,
+      masterGearList: []
     };
     // this.handleClick = this.handleClick.bind(this);
   }
@@ -15,15 +16,22 @@ class SurvivalItemControl extends React.Component {
     this.setState(prevState => ({
       formVisibleOnPage: !prevState.formVisibleOnPage}));
   }
+
+  handleAddingNewGearToList = (newSurvivalItem) => {
+    const newMasterGearList = this.state.masterGearList.concat(newSurvivalItem);
+    this.setState({masterGearList: newMasterGearList,
+    formVisibleOnPage: false });
+  }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewSurvivalItemForm />
+      currentlyVisibleState = <NewSurvivalItemForm onNewSurvivalItemCreation={this.handleAddingNewGearToList} />
       buttonText = "Return to gear inventory"
     } else {
-      currentlyVisibleState = <GearList />
-      buttonText = "Add New Products";
+      currentlyVisibleState = <GearList gearList={this.state.masterGearList} />
+      buttonText = "Add New Product";
     }
     return (
       <React.Fragment>
@@ -34,4 +42,4 @@ class SurvivalItemControl extends React.Component {
   }
 }
 
-export default SurvivalItemControl;
+export default GearControl;
