@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "./Header";
-import SurvivalItemControl from "./SurvivalItemControl";
+import GearControl from "./GearControl";
 
 function App(){
   return (
     <React.Fragment>
       <Header />
-      <SurvivalItemControl />
+      <GearControl />
     </React.Fragment>
   );
 }
