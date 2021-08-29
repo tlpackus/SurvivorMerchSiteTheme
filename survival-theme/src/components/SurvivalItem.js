@@ -9,7 +9,7 @@ function SurvivalItem(props){
         <p>Description: <em>{props.description}</em></p>
         <p>Quantity: {props.quantity}</p>
         <p>Cost: {props.cost}</p>
-        <h3>Bear Grills Uses this!</h3>
+        <h3>Bear Grylls Uses this!</h3>
         <hr/>
       </div>
     </React.Fragment>
