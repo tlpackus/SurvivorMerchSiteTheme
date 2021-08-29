@@ -8,10 +8,15 @@ class GearControl extends React.Component {
     super(props);
     this.state = {
       fromVisibleOnPage: false,
-      masterGearList: [],
+      masterGearList: [{
+        name: "Multi-Function Paracord Bracelet",
+        description: "Survival bracelet with compass and built in fire starter",
+        quantity: 10,
+        cost: 10,
+        id: "1"
+      }],
       selectedSurvivalItem: null
     };
-    // this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick = () =>  {
@@ -38,11 +43,19 @@ class GearControl extends React.Component {
     this.setState({selectedSurvivalItem: selectedSurvivalItem});
   }
 
+  handleBuyingSurvivalItem = (SurvivalItemToEdit) => {
+    const newMasterGearList = this.state.masterGearList.filter(survivalItem => survivalItem.id !== this.state.selectedSurvivalItem.id).concat(SurvivalItemToEdit);
+    this.setState({
+      masterGearList: newMasterGearList,
+      selectedSurvivalItem: SurvivalItemToEdit
+    })
+  } 
+  // buttonText="Buy Item"
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.selectedSurvivalItem != null) {
-      currentlyVisibleState = <SurvivalItemDetail survivalItem = {this.state.selectedSurvivalItem} />
+      currentlyVisibleState = <SurvivalItemDetail buyButtonClick={this.handleBuyingSurvivalItem} survivalItem = {this.state.selectedSurvivalItem} />
       buttonText = "Return to Gear List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewSurvivalItemForm onNewSurvivalItemCreation={this.handleAddingNewGearToList} />
