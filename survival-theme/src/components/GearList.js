@@ -1,25 +1,12 @@
 import React from "react";
 import SurvivalItem from "./SurvivalItem.js"
+import PropTypes from "prop-types";
 
-const masterGearList = [
-  {
-    name: "Survival Watch",
-    description: "compass, watch, and fire starter",
-    quantity:  "10",
-    cost:  "5"
-  },
-  {
-    name: "First Aid Kit",
-    description: "All first aid necessities",
-    quantity:  "10",
-    cost:  "10"
-  }
-];
-function GearList(){
+function GearList(props){
   return (
     <React.Fragment>
       <hr/>
-      {masterGearList.map((survivalItem, index) =>
+      {props.gearList.map((survivalItem, index) =>
         <SurvivalItem 
         name={survivalItem.name}
         description={survivalItem.description}
@@ -30,5 +17,9 @@ function GearList(){
     </React.Fragment>
   );
 }
+
+GearList.propTypes = {
+  gearList: PropTypes.array
+};
 
 export default GearList;
