@@ -16,7 +16,7 @@ __
 
 ## Component Drawing / Starting Project Design
 
-![Component Drawing](./src/Img/component-drawing.png)
+![Component Drawing](./src/Img/updated-component-drawing.png)
 
 ## Setup/Installation Requirements
 
