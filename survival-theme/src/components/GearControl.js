@@ -50,7 +50,7 @@ class GearControl extends React.Component {
       selectedSurvivalItem: SurvivalItemToEdit
     })
   } 
-  // buttonText="Buy Item"
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;

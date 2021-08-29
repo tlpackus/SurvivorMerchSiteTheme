@@ -41,7 +41,6 @@ function SurvivalItemDetail(props){
 
 SurvivalItemDetail.propTypes = {
   survivalItem: PropTypes.object,
-  buttonText: PropTypes.string,
   buyButtonClick: PropTypes.func
 };
 
