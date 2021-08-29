@@ -1,20 +1,30 @@
 import React from "react";
 import NewSurvivalItemForm from './NewSurvivalItemForm';
 import GearList from "./GearList";
+import SurvivalItemDetail from "./SurvivalItemDetail";
 
 class GearControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       fromVisibleOnPage: false,
-      masterGearList: []
+      masterGearList: [],
+      selectedSurvivalItem: null
     };
     // this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick = () => {
-    this.setState(prevState => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage}));
+  handleClick = () =>  {
+    if (this.state.selectedSurvivalItem != null) {
+      this.setState({
+        formVisibleOnPage: false,
+        selectedSurvivalItem: null
+      });
+    } else {
+      this.setState(prevState => ({
+        formVisibleOnPage: !prevState.formVisibleOnPage,
+      }));
+    }
   }
 
   handleAddingNewGearToList = (newSurvivalItem) => {
@@ -23,14 +33,22 @@ class GearControl extends React.Component {
     formVisibleOnPage: false });
   }
 
+  handleChangingSelectedSurvivalItem = (id) => {
+    const selectedSurvivalItem = this.state.masterGearList.filter(survivalItem => survivalItem.id === id)[0];
+    this.setState({selectedSurvivalItem: selectedSurvivalItem});
+  }
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.formVisibleOnPage) {
+    if (this.state.selectedSurvivalItem != null) {
+      currentlyVisibleState = <SurvivalItemDetail survivalItem = {this.state.selectedSurvivalItem} />
+      buttonText = "Return to Gear List";
+    } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewSurvivalItemForm onNewSurvivalItemCreation={this.handleAddingNewGearToList} />
       buttonText = "Return to gear inventory"
     } else {
-      currentlyVisibleState = <GearList gearList={this.state.masterGearList} />
+      currentlyVisibleState = <GearList gearList={this.state.masterGearList} onSurvivalItemSelection={this.handleChangingSelectedSurvivalItem} />;
       buttonText = "Add New Product";
     }
     return (
