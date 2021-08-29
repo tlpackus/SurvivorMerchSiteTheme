@@ -6,20 +6,23 @@ function GearList(props){
   return (
     <React.Fragment>
       <hr/>
-      {props.gearList.map((survivalItem, index) =>
+      {props.gearList.map((survivalItem) =>
         <SurvivalItem 
+        whenSurvivalItemClicked = { props.onSurvivalItemSelection}
         name={survivalItem.name}
         description={survivalItem.description}
         quantity={survivalItem.quantity}
         cost={survivalItem.cost}
-        key={index}/>
+        id={survivalItem.id}
+        key={survivalItem.id}/>
       )}
     </React.Fragment>
   );
 }
 
 GearList.propTypes = {
-  gearList: PropTypes.array
+  gearList: PropTypes.array,
+  onSurvivalItemSelection: PropTypes.func
 };
 
 export default GearList;
