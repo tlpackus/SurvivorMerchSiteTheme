@@ -14,7 +14,7 @@
 * VS Code
 
 ## Description
-_This application displays a List of Survival Items to users. As a user you can add new items to the list, view individual item detail pages, and "buy" items. This application was created to learn how to handle local and shared state within a React application without using hooks or libraries such as Redux. _
+_This application displays a List of Survival Items to users. As a user you can add new items to the list, view individual item detail pages, and "buy" items. This application was created to learn how to handle local and shared state within a React application without using hooks or libraries such as Redux._
 
 ## Component Drawing / Starting Project Design
 
