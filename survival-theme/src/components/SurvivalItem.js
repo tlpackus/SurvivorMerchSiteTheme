@@ -19,7 +19,6 @@ function SurvivalItem(props){
 SurvivalItem.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
-  quantity: PropTypes.number,
   cost: PropTypes.number,
   id: PropTypes.string,
   whenSurvivalItemClicked: PropTypes.func
